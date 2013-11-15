@@ -45,52 +45,19 @@ POSSIBILITY OF SUCH DAMAGE.
         </script>
     </head>
     <body>
-    <%--<div id="publisher" style="height:${canvasRequest.context.environmentContext.dimensions.clientHeight}">--%>
     <div id="publisher">
         <div id="publisher-content">
             <div id="publisher-canvas-content">
-
-                <c:if test="${!ua.device.mobile}" >
                 <table width='100%'>
                     <tr>
-                        <td><b>Name: </b><span id='name'></span></td>
-                        <td><b>Location: </b><span id='location'></span></td>
-                        <td><b>Header: </b><span id='header-enabled'></span></td>
-                        <td><b>Share: </b><span id='share-enabled'></span></td>
+                        <td width="20%"><b>Add namespace: </b><span id='name'></span></td>
+                        <td width="50%"><input style="width:90%;" id="namespace" type="text"/></td>
+                        <td width="*"><input onclick="myPublisher.addNamespace(document.getElementById('namespace').value);" type="submit" value="Add"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span id="namespaces"></span></td>
                     </tr>
                 </table>
-                </c:if>
-
-                <label class='left-label' for='events'>Events:</label>
-                <span class="right-input"><input id='events' class="input" type='text' readonly/></span>
-
-                <label for='auxText'>Aux Text:</label>
-                <input id='auxText' class='input' type='text' value='Some Text'/>
-                <label for='description'>Description:</label>
-                <textarea id='description' class='input' onmouseup='myPublisher.resize()'></textarea>
-                <label for='parameters'>Parameters:</label>
-                <textarea id='parameters' class='input' onmouseup='myPublisher.resize()'>{"any":"valid","json":"object"}</textarea>
-
-                <span class="input-grouping">
-                    <label for='thumbnail'>Thumbnail:</label>
-                    <select id='thumbnail' class="select input input-iphone" onchange='myPublisher.selectThumbnail(this.value)'>
-                    <option value="none">None</option>
-                    <option value="/images/canvaslogo.png">Canvas Logo</option>
-                    <option value="/images/salesforce.png">Salesforce</option>
-                </select>
-                </span>
-                <span class="input-grouping">
-                    <label for='height'>Height:</label>
-                    <input id='height' class='input input-iphone' type='text' value="100px"/>
-                </span>
-                <span class="input-grouping">
-                    <label for='title'>Title:</label>
-                    <input id='title' class='input input-iphone' type='text' value="Activate Canvas"/>
-                </span>
-                <br/>
-                <span class="radio-grouping"><input id="textPost" class='postType' name='postType' type='radio' value='Text' onclick='myPublisher.selectPostType(this.value)'/><label for='textPost'>Text Post</label></span>
-                <span class="radio-grouping"><input id="linkPost" class='postType' name='postType' type='radio' value='Link' onclick='myPublisher.selectPostType(this.value)'/><label for='linkPost'>Link Post</label></span>
-                <span class="radio-grouping"><input id="canvasPost" class='postType' name='postType' type='radio' value='Canvas' onclick='myPublisher.selectPostType(this.value)'/><label for='canvasPost'>Canvas Post</label></span>
             </div>
         </div>
     </div>
